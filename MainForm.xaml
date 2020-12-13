@@ -1,0 +1,94 @@
+﻿<Window x:Class="Course_Project.MainForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Course_Project"
+        mc:Ignorable="d"
+        Title="MainForm" Height="650" Width="1000">
+    <Grid>
+        <Menu Height="20" VerticalAlignment="Top" Background="Aquamarine">
+            <MenuItem Header="File">
+                <MenuItem Header="Open table" Click="btnOpen_Click"/>
+                <MenuItem Header="Save" Click="btnSave_Click"/>
+                <MenuItem Header="Exit" Click="FileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Item" Click="MenuItem_Click">
+                <MenuItem Header="Add new item" Click="itemNew_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help" Click="itemHelp_Click"/>
+        </Menu>
+        <DockPanel  Margin="0,20,0,0" Background="Bisque">
+            <Grid Width="250" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+
+                <Label  FontSize="20" Content="Select" HorizontalAlignment="Center" VerticalAlignment="Center" Height="38"/>
+                <CheckBox Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="cbYouTube" IsChecked="False"/>
+                <Label FontSize="20" Grid.Row="1" HorizontalAlignment="Center" Content="YouTube bloger"/>
+                <CheckBox Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="cbInstagram" IsChecked="False"/>
+                <Label FontSize="20" Grid.Row="2" HorizontalAlignment="Center" Content="Instagram bloger"/>
+                <Label  FontSize="20" Grid.Row="3" Content="Count of subscribers" HorizontalContentAlignment="Center"/>
+                <Label FontSize="20" Grid.Row="4" Content="From"/>
+                <TextBox x:Name="tbxFromSubs" HorizontalAlignment="Center" Width="100" Height="20" Grid.Row="4"/>
+                <Label FontSize="20" Grid.Row="5" Content="To"/>
+                <TextBox x:Name="tbxToSubs" HorizontalAlignment="Center" Width="100" Height="20" Grid.Row="5"/>
+                <Label FontSize="20" Grid.Row="6" Content="Count of posts" HorizontalAlignment="Center"/>
+                <Label FontSize="20" Grid.Row="7" Content="From"/>
+                <TextBox x:Name="tbxFromPosts" HorizontalAlignment="Center" Width="100" Height="20" Grid.Row="7"/>
+                <Label FontSize="20" Grid.Row="8" Content="To"/>
+                <TextBox x:Name="tbxToPosts" HorizontalAlignment="Center" Width="100" Height="20" Grid.Row="8"/>
+                <Button  FontSize="20" Grid.Row="10" x:Name="btnApply" Content="Apply" Margin="5,2" Click="btnApply_Click"/>
+
+            </Grid>
+        </DockPanel>
+        <DataGrid x:Name="dgBlogger" Margin="280,30,30,250" AutoGenerateColumns="False" SelectionChanged="dgBlogger_SelectionChanged" Height="Auto" Width="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding CountOfSubs}" Header="Count of subscribers" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding CountOfPosts}" Header="Count of posts" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding AvgViewsPostsPerDay}" Header="Average count of views/Posts per day" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Platform}" Header="Platform" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Width="650" Margin="280,389,70,10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbName" Content="Name" FontSize="20" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbxName" Height="30" Width="200" />
+            <Label x:Name="lbSubs" Grid.Row="1" Grid.Column="0" Content="Count of Subscribers" FontSize="20" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbxSubs" Height="30" Width="200" />
+            <Label x:Name="lbPosts" Grid.Row="2" Grid.Column="0" Content="Count of Posts" FontSize="20" />
+            <TextBox Grid.Row="2"  Grid.Column="1" x:Name="tbxPosts" Height="30" Width="200" />
+            <Label Grid.Row="3" Grid.Column="0" Content=" " x:Name="lavelChoose" FontSize="20"/>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="tbxChoose" Height="30" Width="200" />
+            <Button Grid.Row="4" Grid.Column="0" x:Name="btUpd" Content="Update" FontSize="20" Click="btUpd_Click" />
+            <Button Grid.Row="4" Grid.Column="1" x:Name="btnDelete" Content="Delete" FontSize="20" Click="btnDelete_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

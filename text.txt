@@ -1,0 +1,4 @@
+4, sql_is_good, 7777, 45, 2, Instagram
+3, spongebob, 100000, 320, 3, Instagram
+8, Metanit, 555555, 555, 55, Instagram
+38, Yuriy, 11111, 111100, 111100, Instagram
