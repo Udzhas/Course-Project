@@ -71,7 +71,7 @@ namespace Course_Project
                     }
                 
                 
-                (Owner as MainForm).LoadBlogers();
+                (Owner as MainForm).LoadBlogers(null);
             }
             catch
             {

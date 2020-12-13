@@ -29,18 +29,28 @@ namespace Course_Project
         SqlDataAdapter adapter;
         DataTable blogersTable;
         public int Id;
+        string sqlQuery = String.Empty;
         public MainForm()
         {
 
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            LoadBlogers();
+            LoadBlogers(sqlQuery);
 
         }
 
-        public void LoadBlogers()
+        public void LoadBlogers(string query)
         {
-            string sql = "SELECT * FROM Blogers";
+            string sql;
+            if (String.IsNullOrEmpty(query)) 
+            {
+                sql = "SELECT * FROM Blogers";
+            }
+            else
+            {
+                sql = query;
+            }
+            
             blogersTable = new DataTable();
             SqlConnection connection = null;
             try
@@ -96,11 +106,15 @@ namespace Course_Project
                 blogersTable = new DataTable();
                 if (cbInstagram.IsChecked == true && cbYouTube.IsChecked == false)
                 {
-                    query = "Select * from Blogers where Platform = 'Instagram'";
+                    query = "Select * from Blogers where Platform = 'Instagram' ";
                 }
                 if (cbYouTube.IsChecked == true && cbInstagram.IsChecked == false)
                 {
-                    query = "Select * from Blogers where Platform = 'YouTube'";
+                    query = "Select * from Blogers where Platform = 'YouTube' ";
+                }
+                if (cbYouTube.IsChecked == true && cbInstagram.IsChecked == true)
+                {
+                    query = "Select * from Blogers ";
                 }
 
                 
@@ -113,10 +127,16 @@ namespace Course_Project
                     minS = Convert.ToInt32(tbxFromSubs.Text);
                     maxS = Convert.ToInt32(tbxToSubs.Text);
                     try {
-                        
-                        if(minS <= maxS)
+                        if (minS <= maxS)
                         {
-                            query += $"and CountOfSubs >= {minS} and CountOfSubs <= {maxS}";
+                            if (query.Contains("where"))
+                            {
+                                query += $"and CountOfSubs >= {minS} and CountOfSubs <= {maxS}";
+                            }
+                            else
+                            {
+                                query += $"where CountOfSubs >= {minS} and CountOfSubs <= {maxS}";
+                            }
                         }
                     }
                     catch
@@ -132,10 +152,17 @@ namespace Course_Project
                     maxP = Convert.ToInt32(tbxToPosts.Text);
                     try
                     {
-                       
                         if (minP <= maxP)
                         {
-                            query += $"and CountOfPosts >= {minP} and CountOfPosts <= {maxP}";
+
+                            if (query.Contains("where"))
+                            {
+                                query += $"and CountOfPosts >= {minP} and CountOfPosts <= {maxP}";
+                            }
+                            else 
+                            {
+                                query += $"where CountOfPosts >= {minP} and CountOfPosts <= {maxP}";
+                            }
                         }
                     }
                     catch
@@ -144,7 +171,7 @@ namespace Course_Project
                     }
 
                 }
-
+                sqlQuery = query;
                 blogersTable = new DataTable();
                 try
                 {
@@ -228,13 +255,14 @@ namespace Course_Project
         }
         private void btnOpen_Click(object sender, RoutedEventArgs e)
         {
+            sqlQuery = null;
             cbInstagram.IsChecked = false;
             cbYouTube.IsChecked = false;
             tbxFromPosts.Text = String.Empty;
             tbxFromSubs.Text = String.Empty;
             tbxToPosts.Text = String.Empty;
             tbxToSubs.Text = String.Empty;
-            LoadBlogers();
+            LoadBlogers(sqlQuery);
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
@@ -266,7 +294,7 @@ namespace Course_Project
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();
-                    LoadBlogers();
+                    LoadBlogers(sqlQuery);
                 }
                 
                 MessageBox.Show("Successfully updated!");
@@ -349,7 +377,7 @@ namespace Course_Project
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 
-                LoadBlogers();
+                LoadBlogers(sqlQuery);
                 MessageBox.Show("Successfully deleted!");
 
             }
