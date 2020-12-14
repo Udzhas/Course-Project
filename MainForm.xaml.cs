@@ -389,7 +389,7 @@ namespace Course_Project
 
         private void itemHelp_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("This program performs simple CRUD operations with MS Server database. If you have any questions please DM me. Or view program on GitHub: https://github.com/Udzhas/Course-Project");
         }
     }
 }
