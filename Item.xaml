@@ -21,9 +21,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="Header" Content="What you want to do?" VerticalAlignment="Center"  HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="297,0,0,0" FontSize="20" RenderTransformOrigin="0.494,0.479"/>
+        <Label x:Name="Header" Content="What you want to do?" VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="20"/>
         <Button Grid.Column="0" Grid.Row="1" x:Name="btnAddInst" Content="Add new Instagram bloger" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddInst_Click" FontSize="20"/>
-        <Button Grid.Column="1" Grid.Row="1" x:Name="btnAddYouTube" Content=" Add new YouTube blogger" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddYouTube_Click" FontSize="20"/>
+        <Button Grid.Column="1" Grid.Row="1" x:Name="btnAddYouTube" Content=" Add new YouTube bloger" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddYouTube_Click" FontSize="20"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Name" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
         <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbxName" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Height="30"/>
         <Label Grid.Column="0" Grid.Row="3" Content="Count of subscribers" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20"/>
