@@ -1,2 +1,7 @@
 4, sql_is_good, 7777, 45, 9, Instagram
+3, spongebob, 100000, 320, 5, Instagram
+6, Paska, 1234, 50, 150000, YouTube
+8, Metanit, 555555, 555, 55, Instagram
+38, Yuriy, 11111, 111100, 111100, Instagram
+43, Aa1233, 111222, 11223344, 112223, YouTube
 45, test, 10000, 110, 10, Instagram

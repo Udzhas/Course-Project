@@ -24,7 +24,6 @@ namespace Course_Project
     /// </summary>
     public partial class MainForm : Window
     {
-        private static BlogerContext blogerContext;
         string connectionString;
         SqlDataAdapter adapter;
         DataTable blogersTable;
@@ -305,16 +304,7 @@ namespace Course_Project
                 MessageBox.Show("Error. Please try again.");
             }
         }
-        public IEnumerable<DataGridRow> GetDataGridRows(DataGrid grid)
-        {
-            var itemsSource = grid.ItemsSource as IEnumerable;
-            if (null == itemsSource) yield return null;
-            foreach (var item in itemsSource)
-            {
-                var row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
-                if (null != row) yield return row;
-            }
-        }
+       
 
         private void dgBlogger_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

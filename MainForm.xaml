@@ -56,7 +56,7 @@
 
             </Grid>
         </DockPanel>
-        <DataGrid x:Name="dgBlogger" Margin="280,30,30,250" AutoGenerateColumns="False" SelectionChanged="dgBlogger_SelectionChanged" Height="Auto" Width="Auto">
+        <DataGrid IsReadOnly="True" x:Name="dgBlogger" Margin="280,30,30,250" AutoGenerateColumns="False" SelectionChanged="dgBlogger_SelectionChanged" Height="Auto" Width="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="Auto"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="Auto" />

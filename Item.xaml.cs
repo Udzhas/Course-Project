@@ -21,7 +21,6 @@ namespace Course_Project
     {
         public int blogerType;
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        private MainForm mainForm;
         public Item()
         {
             InitializeComponent();
